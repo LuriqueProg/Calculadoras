@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculos</title>
+</head>
+<body>
+    <div class="container">
+        <section class="calgroup">
+            <div class="button-group">
+                <button id="none" class="btn btn-card btn-active">Nenhuma</button>
+                <button id="eqseg" class="btn btn-card desativar">Equação do segundo Grau</button>
+                <button id="pitagoras" class="btn btn-card desativar">Pitagoras</button>
+            </div>
+        </section>
+        <main>
+            <div class="calc">
+                <div class="eqseg disable">
+                    <p class="input-p"> Valor de A : <input type="number" name="a" id="a" class="input-field"></p>
+                    <p class="input-p"> Valor de B : <input type="number" name="b" id="b" class="input-field"></p>
+                    <p class="input-p"> Valor de C : <input type="number" name="c" id="c" class="input-field"></p>
+                    <button class="btn btn-submit-eqseg btn-submit">Calcular</button>
+                </div>
+                <div class="pitagoras disable">
+                    <h2>Você quer achar o(a) : </h2>
+                    <div class="calc-button-group">
+                        <Button class="btn btn-calc" id="btn-cateto-ad">Cateto ad</Button>
+                        <Button class="btn btn-calc" id="btn-cateto-op">Cateto op</Button>
+                        <Button class="btn btn-calc" id="btn-hipo">Hipotenusa</Button>
+                    </div>
+                    <div class="hipotenusa">
+                        <p class="input-p">Valor da Hipotenusa : <input type="number" name="hipotenusa" id="hipotenusa" class="input-field" min="0"></p>
+                        <p class="input-p">Valor do Cateto Oposto : <input type="number" name="catetooposto" id="catetooposto" class="input-field" min="0"></p>
+                        <p class="input-p">Valor do Cateto Adjacente : <input type="number" name="catetoadjacente" id="catetoadjacente" class="input-field" min="0"></p>
+                        <button class="btn btn-submit btn-submit-pitagoras">Calcular</button>
+                    </div>
+                </div>  
+            </div>
+            <div class="res disable">
+                <h1 id="resh1">Resultado</h1>
+                <p class="resultado"></p>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

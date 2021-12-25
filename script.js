@@ -455,11 +455,11 @@ function calcularimc(){
     let altura = document.querySelector('#alturaimc')
     let peso = document.querySelector('#pesoimc')
 
-    //LIMPANDO SEUS DADOS
+    //LIMPANDO SEUS DADOS   
 
-    nome.value = ""
-    altura.value = "0"
-    peso.value = "0"
+    nome.value =""
+    altura.value =""
+    peso.value =""
 
     //CALCULO 
 

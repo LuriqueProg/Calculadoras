@@ -1,6 +1,8 @@
 let none = document.querySelector('#none')
 let eqseg = document.querySelector('#eqseg')
 let pitagoras = document.querySelector('#pitagoras')
+let imc = document.querySelector('#imc')
+let calcimc = document.querySelector('.imc')
 let calceqseg = document.querySelector('.eqseg')
 let calcpitagoras = document.querySelector('.pitagoras')
 let res = document.querySelector('.res')
@@ -10,39 +12,62 @@ none.addEventListener('click', desactiveall)
 function desactiveall(){
     none.classList.add('btn-active')
     none.classList.remove('desativar')
+    imc.classList.add('desativar')
+    imc.classList.remove('btn-active')
     eqseg.classList.add('desativar')
     eqseg.classList.remove('btn-active')
     pitagoras.classList.add('desativar')
     pitagoras.classList.remove('btn-active')
     calceqseg.classList.add('disable')
     calcpitagoras.classList.add('disable')
+    calcimc.classList.add('disable')
     res.classList.add('disable')
 }
 eqseg.addEventListener('click', ativareqseg)
 function ativareqseg(){
     eqseg.classList.remove('desativar')
-    eqseg.classList.add('btn-active')   
+    eqseg.classList.add('btn-active') 
+    imc.classList.add('desativar')
+    imc.classList.remove('btn-active')  
     pitagoras.classList.add('desativar')
     pitagoras.classList.remove('btn-active')
     none.classList.add('desativar')
     none.classList.remove('btn-active')
     calceqseg.classList.remove('disable')
     calcpitagoras.classList.add('disable')
+    calcimc.classList.add('disable')
     res.classList.add('disable')
 }
 pitagoras.addEventListener('click', ativarpitagoras)
 function ativarpitagoras(){
     pitagoras.classList.add('btn-active')
     pitagoras.classList.remove('desativar')
+    imc.classList.add('desativar')
+    imc.classList.remove('btn-active')
     none.classList.add('desativar')
     none.classList.remove('btn-active')
     eqseg.classList.remove('btn-active')
     eqseg.classList.add('desativar')    
     calceqseg.classList.add('disable')
     calcpitagoras.classList.remove('disable')
+    calcimc.classList.add('disable')
     res.classList.add('disable')
 }
-
+imc.addEventListener('click', ativarimc)
+function ativarimc(){
+    imc.classList.remove('desativar')
+    imc.classList.add('btn-active')
+    pitagoras.classList.remove('btn-active')
+    pitagoras.classList.remove('desativar')    
+    none.classList.add('desativar')
+    none.classList.remove('btn-active')
+    eqseg.classList.remove('btn-active')
+    eqseg.classList.add('desativar')    
+    calceqseg.classList.add('disable')
+    calcpitagoras.classList.add('disable')
+    calcimc.classList.remove('disable')
+    res.classList.add('disable')
+}
 eqseg.addEventListener('click', calculareqseg)
 function calculareqseg(){    
     let a = document.querySelector('#a')
@@ -224,5 +249,49 @@ function calcularpitagora(){
     })  
 }
     
-    
+// CALCULAR IMC
+
+
+imc.addEventListener('click', calcularimc)
+function calcularimc(){   
+
+    //CALCULO 
+
+    document.querySelector('.btn-submit-imc').addEventListener('click', function(){
+        let nome = document.querySelector('#nomeimc').value
+        let altura = document.querySelector('#alturaimc').value
+        let peso = document.querySelector('#pesoimc').value
+        resh1.classList.remove('disable')
+        res.classList.remove('disable')
+        if (nome == ""){
+            alert('Insira seu nome')         
+        }   
+        if (altura == ""){    
+            alert('Insira seu altura')
+        }         
+        if (peso == ""){ 
+            alert('Insira seu peso')
+        }               
+        if (nome != "" && altura != "" && peso != ""){
+            let valorimc = (peso / (altura * altura)).toFixed(1)
+            let classificar = ""
+            if (valorimc < 18.5){
+                classificar = "Abaixo do peso"                
+            }else if(valorimc < 25){
+                classificar = "Com peso Ideal. Parabens"
+            }else if(valorimc <30){
+                classificar = "levemente acima do peso."
+            }else if(valorimc <35){
+                classificar = "Obesidade Grau 1"
+            }else if(valorimc <40){
+                classificar = "Obesidade Grau 2"
+            }else{
+                classificar = "Obesidade Grau 3 (Morbita). Cuidado!!"
+            }
+            resultado.innerHTML = `Olá ${nome}, <br> seu IMC é de ${valorimc} <br> e você está ${classificar}`
+        }
+                    
+    })
+}
+
     

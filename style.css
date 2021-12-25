@@ -108,7 +108,39 @@ br{
     padding: 1rem;
     font-size: 1.2rem;
 }
-
+footer{
+    width: 100%;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 1rem 0;
+}
+footer p{
+    text-indent: 1rem;
+}
+footer .social-midia{
+    width: 13%;
+    margin: 1.4rem auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 1rem;    
+}
+footer .social-midia i{
+    cursor: pointer;
+    background-color: #ff00b3;
+    font-size: 5rem;
+    padding: .6rem .8rem;    
+    border-radius: 50%;
+    margin: 0 1rem;
+}
+footer .social-midia i:hover{
+    color: black;
+}
+footer .social-midia i:active{
+    color: greenyellow;
+    background-color: #000;
+}
 /* Media Querrys */
 
 @media (max-width: 1450px){
